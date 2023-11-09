@@ -7,7 +7,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ls='eza -al'
+alias ls='eza -aFH --icons --group-directories-first --git -1'
 alias tree='tree --dirsfirst -shC -I "node_modules|resources"'
 
 # --------------------------------------------------
