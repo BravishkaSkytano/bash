@@ -28,13 +28,17 @@ export CSCOPE_EDITOR="vim"
 # SHELL OPTIONS
 # --------------------------------------------------
 
-if [ -f /usr/bin/neofetch ]; then neofetch; fi
+#if [ -f /usr/bin/neofetch ]; then neofetch; fi
 if [ -f /usr/bin/starship ] || [ -f ~/.nix-profile/bin/starship ]; then eval "$(starship init bash)"; fi
 
 # --------------------------------------------------
-# ARCHIVE EXTRACT
+# FUNCTIONS
 # --------------------------------------------------
 
+# run ls when I cd into a dir
+cl () { cd "${@}" && ls; }
+
+# archive extract
 ex ()
 {
     if [ -f $1 ] ; then
