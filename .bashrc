@@ -4,6 +4,9 @@
 # Special mention: Jake@Linux
 # He does a lot of stuff with Bash and I love it <3
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # --------------------------------------------------
 # IMPORTS
 # --------------------------------------------------
@@ -28,13 +31,18 @@ export CSCOPE_EDITOR="vim"
 # SHELL OPTIONS
 # --------------------------------------------------
 
-if [ -f /usr/bin/neofetch ]; then neofetch; fi
-if [ -f /usr/bin/starship ] || [ -f ~/.nix-profile/bin/starship ]; then eval "$(starship init bash)"; fi
+# Load starship prompt if starship is installed
+[ -x /usr/bin/starship ] || [ -x ~/.nix-profile/bin/starship ] && eval "$(starship init bash)"
+#[ -x /usr/bin/neofetch ] && neofetch
 
 # --------------------------------------------------
-# ARCHIVE EXTRACT
+# FUNCTIONS
 # --------------------------------------------------
 
+# run ls when I cd into a dir
+cl () { cd "${@}" && ls; }
+
+# archive extract
 ex ()
 {
     if [ -f $1 ] ; then
