@@ -39,8 +39,12 @@ export CSCOPE_EDITOR="vim"
 # FUNCTIONS
 # --------------------------------------------------
 
-# run ls when I cd into a dir
-cl () { cd "${@}" && ls; }
+# git backup
+gb () {
+    git add .
+    git commit -m "$(uname -o) $(git diff --cached --numstat | wc -l) files ($(date +%R))"
+    git push
+}
 
 # archive extract
 ex ()
