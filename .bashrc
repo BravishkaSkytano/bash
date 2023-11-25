@@ -41,9 +41,19 @@ export CSCOPE_EDITOR="vim"
 
 # git backup
 gb () {
-    git add .
-    git commit -m "$(uname -o) $(git diff --cached --numstat | wc -l) files ($(date +%R))"
-    git push
+        if [ "$(hostname)" = "localhost" ]; then
+                read -rp "Provide hostname: " hn
+                echo "Set hostname with"
+                echo "  sudo hostnamectl set-hostname new-name"
+                echo "to prevent this message."
+                git add . && \
+                git commit -m "$hn $(git diff --cached --numstat | wc -l) files ($(date +%R))" && \
+                git push
+        else
+                git add . && \
+                git commit -m "$(hostname) $(git diff --cached --numstat | wc -l) files ($(date +%R))" && \
+                git push
+        fi
 }
 
 # archive extract
