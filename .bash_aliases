@@ -22,6 +22,7 @@ alias lg='eza -al --color=always --group-directories-first --icons --git' # show
 # GIT
 # --------------------------------------------------
 
+alias gcl="git clone --recurse-submodules https://github.com/$1"
 alias gf="git fetch"
 alias gs="git status"
 alias ga="git add"
