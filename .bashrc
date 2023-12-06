@@ -21,8 +21,6 @@ if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile
 export BROWSER="firefox"
 export EDITOR="vim"
 export VISUAL="vim"
-export MYVIMRC="$HOME/.config/vim/.vimrc"
-export VIMINIT="source $MYVIMRC"
 #export PATH="$PATH:$HOME/.local/scripts/:$HOME/.local/bin/:$HOME/.local/scripts/dmenu/:$HOME/.cargo/bin"
 #export CDPATH=".:$HOME:$HOME/.config/:$HOME/.local/:$HOME/.local/share/:$HOME/.local/programs"
 export CSCOPE_EDITOR="vim"
